@@ -1,3 +1,7 @@
+.github/
+.vscode/
+.history/
+
 # Logs
 logs
 *.log
