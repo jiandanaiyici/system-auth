@@ -1,6 +1,5 @@
 <template>
   <div>
-    <a-button type="primary">Hello Ant Design Vue V2</a-button>
     <axios></axios>
     <custom-hooks></custom-hooks>
   </div>

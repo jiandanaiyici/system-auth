@@ -9,6 +9,18 @@ import { Controller } from 'egg';
 // };
 
 class LoginController extends Controller {
+  async queryUserInfo() {
+    const ctx = this.ctx;
+
+    ctx.body = {
+      success: true,
+      data: {
+        role: 'ADMIN',
+        name: '你好'
+      }
+    }
+  }
+
   async create() {
     const ctx = this.ctx;
     // 校验 `ctx.request.body` 是否符合我们预期的格式
@@ -18,7 +30,10 @@ class LoginController extends Controller {
     // const id = await ctx.service.login.create(ctx.request.body);
     // 设置响应体和状态码
     ctx.body = {
-      name: 'name'
+      success: true,
+      data: {
+        name: 'name'
+      }
     };
     ctx.status = 200;
     // ctx['Access-Control-Allow-Origin'] = '*'

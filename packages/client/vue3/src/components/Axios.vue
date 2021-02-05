@@ -1,13 +1,18 @@
 
 <template>
-  <div>Axios测试</div>
+  <div>
+    <a-button @click="run" type="primary" size="small">请求</a-button>
+    <a-button @click="reset" size="small">Reset</a-button>
+    <a-spin :spinning="loading">
+      <pre>{{ JSON.stringify(value) }}</pre>
+    </a-spin>
+  </div>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue';
-import { request } from '../utils';
+import { defineComponent } from 'vue';
+import { useQuery } from '../hooks';
 
-console.log(request.get('/api/login'), 'request');
 export default defineComponent({
   name: 'HelloWorld',
   props: {
@@ -17,8 +22,8 @@ export default defineComponent({
     },
   },
   setup: () => {
-    const count = ref(0);
-    return { count };
+    const [run, value, loading, { reset }] = useQuery('/api/queryUserInfo');
+    return { value, run, loading, reset };
   },
 });
 </script>
