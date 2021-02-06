@@ -4,7 +4,7 @@
   "scripts": {
     "serve": "cd packages/server && npm run dev",
     "start-vue": "cd packages/client/vue3 && npm run dev",
-    "start-react": "cd packages/client/vue && npm run start"
+    "start-react": "cd packages/client/react && npm run start"
   },
   "devDependencies": {
     "lerna": "^3.22.1"

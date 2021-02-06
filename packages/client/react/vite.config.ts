@@ -1,14 +1,7 @@
 import reactRefresh from '@vitejs/plugin-react-refresh'
 import { defineConfig } from 'vite';
-// import path from 'path';
-// import resolve from '@rollup/plugin-node-resolve';
+import path from 'path';
 
-
-// const customResolver = resolve({
-//   extensions: ['.mjs', '.js', '.jsx', '.json', '.sass', '.scss']
-// });
-// const projectRootDir = path.resolve(__dirname);
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [reactRefresh()],
   // 不生效
@@ -20,6 +13,8 @@ export default defineConfig({
   }],
   server: {
     cors: true,
+    host: process.env.NODE_ENV || '0.0.0.0',
+    port: 8080,
     proxy: {
       '/api': {
         target: 'http://localhost:7002',
